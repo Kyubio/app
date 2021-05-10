@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="canonical" href="https://kyubio.i441891.hera.fhict.nl" />
+    <link rel="canonical" href="https://kyubio.i441891.hera.fhict.nl/dashboard" />
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-touch-icon-57x57.png" />
@@ -22,72 +22,37 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap">
     <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
-    <link rel="stylesheet" type="text/css" href="css/compiled/style-connection.min.css">
+    <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
+    <script src="js/dashboard.js"></script>
 </head>
 
 <body>
-    <!-- preloader -->
-    <div class="loader">
-        <h1>KYUBIO</h1>
-    </div>
-
 
     <!-- header -->
     <header>
         <h1>KYUBIO</h1>
-        <h2>Settings</h2>
+        <h2>Home</h2>
     </header>
 
-    <div class="connection-text">
-        <h1>Connection</h1>
-        <p>Let’s connect with <br /> your Kyubio</p>
+    
+    <div class="dashboard-titles">
+        <h1>Focus Session</h1>
     </div>
 
-    <a onclick="showConnectionModule()">
-        <div class="button">
-            <p><i class="far fa-search"></i> &nbsp; Search for devices</p>
-        </div>
+    <a href="setTimer.html">
+        <button id="session-button">
+            <p>new session<i class="far fa-arrow-right"></i></p>
+            <img class="cubeView" src="img/cube-view.png">
+        </button>
     </a>
 
-    <div class="connection-module">
-        <div class="title-container">
-            <h1>New devices &nbsp; <em class="color-blue">---------------------------</em></h1>
-        </div>
-    
-        <div class="cubes-nearby">
-            <a onclick="showChangeNameModule()"><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-K9</a>
-            <p><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-85</p>
+    <div class="dashboard-titles">
+        <h1 style="color: #43B1D6; margin: 40px 0 5px 0;">Earlier focus sessions</h1>
+        <div id="earlierSessionLog">
+
         </div>
     </div>
 
-
-    <!-- modal change name-->
-    <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h1>Give your Kyubio a name</h1>
-      </div>
-      <div class="modal-body">
-        <p class="color-blue"><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-K9</p>
-
-        <form>
-          <input type="text" placeholder="change name..." name="name" id="changeName" required>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <a onclick="showConnectionModule()">
-            <div class="button">
-                <p><i class="far fa-thumbs-up"></i> &nbsp; Looks good</p>
-            </div>
-        </a>
-      </div>
-    </div>
-  
-  </div>
 
 
 
