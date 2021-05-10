@@ -5,20 +5,22 @@ var logDate = d.getDate() + " " +  month;
 
 var Progress = "75%";
 
-var setTime = "1:40";
+var setTime;
 
 var frequency = 5;
 
 function CreateButton()
 {
-    var lastSessionLog = "<button class='SessionLog'> <div> <div id='progression'>" + Progress + "</div> <div> <p>" + logDate + "</p> <p>" + setTime + "</p> </div> <i class='far fa-chevron-right'></i></div> </button>";
+  var lastSessionLog = "<button class='SessionLog'> <div> <div id='progression'>" + Progress + "</div> <div> <p>" + logDate + "</p> <p>" + setTime + "</p> </div> <i class='far fa-chevron-right'></i></div> </button>";
 
-    $("#earlierSessionLog").append(lastSessionLog);
+  $("#earlierSessionLog").append(lastSessionLog);
 }
 
 //check welke tijd er wordt ingesteld en zet deze in de var setTime
-$("#timerCnfrm").change(function(){
-    setTime = $("#timeSelect").val();
+$("#timerCnfrm").click(function(){
+  setTime = $("#timeSelect").val();
+  localStorage.setItem("time", setTime);
+  console.log(setTime);
 });
 
 //lets start knop op de session settings pagina listener
@@ -55,3 +57,4 @@ function setBubble(range, bubble) {
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8- newVal * 0.15}px))`;
 }
+
