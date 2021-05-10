@@ -53,7 +53,7 @@
         <div class="title-container">
             <h1>New devices &nbsp; <em class="color-blue">---------------------------</em></h1>
         </div>
-    
+
         <div class="cubes-nearby">
             <a onclick="showChangeNameModule()"><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-K9</a>
             <p><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-85</p>
@@ -63,31 +63,39 @@
 
     <!-- modal change name-->
     <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h1>Give your Kyubio a name</h1>
-      </div>
-      <div class="modal-body">
-        <p class="color-blue"><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-K9</p>
-
-        <form>
-          <input type="text" placeholder="change name..." name="name" id="changeName" required>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <a onclick="showConnectionModule()">
-            <div class="button">
-                <p><i class="far fa-thumbs-up"></i> &nbsp; Looks good</p>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h1>Give your Kyubio a name</h1>
             </div>
-        </a>
-      </div>
+            <div class="modal-body">
+                <div id="changeNameInput">
+                    <p class="color-blue"><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-K9</p>
+                    <form>
+                        <input type="text" placeholder="change name..." name="name" id="changeName" required>
+                    </form>
+                </div>
+                <div id="changeNameCheckmark">
+                    <i class="fal fa-check-circle"></i>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a onclick="showConnectionModule()">
+                    <div class="button">
+                        <a id="changeNameButton1" onclick="showChangeNameCheckmark()">
+                            <p><i class="far fa-thumbs-up"></i> &nbsp; Looks good</p>
+                        </a>
+                    </div>
+                    <div class="button">
+                        <a id="changeNameButton2" href="dashboard.html">
+                            <p><i class="far fa-arrow-right"></i> &nbsp; Let's start</p>
+                        </a>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
-  
-  </div>
 
 
 

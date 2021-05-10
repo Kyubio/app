@@ -20,10 +20,19 @@ $(window).on("load", function() {
 // Connection module
 $(document).ready(function() {
     $('.connection-module').hide();
+    $('#changeNameCheckmark').hide();
+    $('#changeNameButton2').hide();
 });
 
 function showConnectionModule() {
     $('.connection-module').show();
+}
+
+function showChangeNameCheckmark() {
+    $('#changeNameCheckmark').show();
+    $('#changeNameInput').hide();
+    $('#changeNameButton1').hide();
+    $('#changeNameButton2').show();
 }
 
 
@@ -44,12 +53,12 @@ function showChangeNameModule() {
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+    modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
