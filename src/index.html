@@ -22,9 +22,81 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap">
     <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
+    <link rel="stylesheet" type="text/css" href="css/compiled/style-connection.min.css">
 </head>
 
 <body>
+    <!-- preloader -->
+    <div class="loader">
+        <h1>KYUBIO</h1>
+    </div>
+
+
+    <!-- header -->
+    <header>
+        <h1>KYUBIO</h1>
+        <h2>Settings</h2>
+    </header>
+
+    <div class="connection-text">
+        <h1>Connection</h1>
+        <p>Let’s connect with <br /> your Kyubio</p>
+    </div>
+
+    <a onclick="showConnectionModule()">
+        <div class="button">
+            <p><i class="far fa-search"></i> &nbsp; Search for devices</p>
+        </div>
+    </a>
+
+    <div class="connection-module">
+        <div class="title-container">
+            <h1>New devices &nbsp; <em class="color-blue">---------------------------</em></h1>
+        </div>
+
+        <div class="cubes-nearby">
+            <a onclick="showChangeNameModule()"><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-K9</a>
+            <p><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-85</p>
+        </div>
+    </div>
+
+
+    <!-- modal change name-->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h1>Give your Kyubio a name</h1>
+            </div>
+            <div class="modal-body">
+                <div id="changeNameInput">
+                    <p class="color-blue"><i class="far fa-dice-d6"></i> &nbsp; Kyubio SF-05-K9</p>
+                    <form>
+                        <input type="text" placeholder="change name..." name="name" id="changeName" required>
+                    </form>
+                </div>
+                <div id="changeNameCheckmark">
+                    <i class="fal fa-check-circle"></i>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a onclick="showConnectionModule()">
+                    <div class="button">
+                        <a id="changeNameButton1" onclick="showChangeNameCheckmark()">
+                            <p><i class="far fa-thumbs-up"></i> &nbsp; Looks good</p>
+                        </a>
+                    </div>
+                    <div class="button">
+                        <a id="changeNameButton2" href="dashboard.html">
+                            <p><i class="far fa-arrow-right"></i> &nbsp; Let's start</p>
+                        </a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
 
 
     <script type="text/javascript" src="js/jquery.min.js"></script>

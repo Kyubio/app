@@ -1,2 +1,60 @@
 @import 'variables';
+body {
+    background: $bgGradient;
+    max-width: 600px;
+    margin: auto;
+    padding: 0 20px;
+}
 
+header {
+    text-align: center;
+    margin-top: 40px;
+    h1 {
+        font-family: 'Aquire', sans-serif;
+        font-size: 29px;
+    }
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        color: $bgColor;
+        margin-top: 6px;
+    }
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 99;
+    background: $bgColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        font-family: 'Aquire', sans-serif;
+        font-size: 61px;
+        color: #fff;
+    }
+}
+
+.button {
+    width: 100%;
+    background: $buttonColor;
+    border-radius: $buttonRadius;
+    box-shadow: $buttonShadow;
+    color: #fff;
+    p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        text-align: center;
+        padding: 22px 0;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
