@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
+    <link rel="stylesheet" type="text/css" href="css/compiled/style-modal.min.css">
     <script src="js/mqtt-connection.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
 
@@ -36,7 +37,7 @@
         <h2>Session</h2>
     </header>
 
-    
+
     <div class="settings-Title">
         <h1>Signals</h1>
     </div>
@@ -44,8 +45,8 @@
     <div class="setting-area">
         <div class="flex-container" style="margin-bottom: 30px;">
             <div>
-                Vibrations 
-            </div>  
+                Vibrations
+            </div>
             <div>
                 <label class="switch" id="vibrations">
                     <input type="checkbox">
@@ -55,8 +56,8 @@
         </div>
         <div class="flex-container">
             <div>
-                Sounds 
-            </div>  
+                Sounds
+            </div>
             <div>
                 <label class="switch" id="sounds">
                     <input type="checkbox">
@@ -66,13 +67,18 @@
         </div>
     </div>
 
-    <div class="settings-Title">
+    <div class="settings-Title information">
         <h1>Frequency</h1>
+        <a onclick="toggleFrequencyShow()"><i class="far fa-info-circle"></i></a>
     </div>
 
-    
+
+
+
+
+    <!-- frequency settings -->
     <div class="setting-area">
-        <div class="flex-container" style="margin-bottom: 10px;">   
+        <div class="flex-container" style="margin-bottom: 10px;">
             <div>
                 2 sec
             </div>
@@ -88,14 +94,40 @@
 
     <!--start timer knop-->
     <a>
-        <button id="settingsCnfrm">
+        <button class="button" id="settingsCnfrm">
             <p><i class="far fa-thumbs-up"></i> Let's start</p>
         </button>
     </a>
 
+    <!-- modal Frequency -->
+    <div id="info-circle" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h1>Frequency</h1>
+            </div>
+            <div class="modal-body">
+                <p>Met de frequency stel je de interval in na elk signaal. Zo kan je dit aanpassen tussen 2 tot 20 seconden. Waarvan de 2 betekent dat er na 2 sec niet op een knop te hebben geduwd een signaal afgaat. </p>
+            </div>
+            <div class="modal-footer">
+                <a onclick="showConnectionModule()">
+                    <div class="button">
+                        <a onclick="toggleFrequencyHide()">
+                            <p><i class="far fa-thumbs-up"></i> &nbsp; Okay </p>
+                        </a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         MQTTconnect();
     </script>
+
+
+
 
 
 
