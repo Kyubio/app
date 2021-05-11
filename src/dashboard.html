@@ -23,7 +23,6 @@
     <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
-    <script src="js/dashboard.js"></script>
 </head>
 
 <body>
@@ -58,6 +57,20 @@
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script>
+        $( document ).ready(function() {
+           var nxtSession = localStorage.getItem("CurrentSessionID");
+           var prvSession = parseFloat(nxtSession);
+           prvSession = prvSession;
+           
+          for( var i = prvSession; i != 0; i--)
+          {
+            var SessionLog = localStorage.getItem("button"+i);
+            $("#earlierSessionLog").append(SessionLog);
+        }
+        });
+    </script>
 </body>
 
 </html>
