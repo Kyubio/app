@@ -60,15 +60,15 @@
     <script src="js/dashboard.js"></script>
     <script>
         $( document ).ready(function() {
-           var nxtSession = localStorage.getItem("CurrentSessionID");
-           var prvSession = parseFloat(nxtSession);
-           prvSession = prvSession;
+            var nxtSession = localStorage.getItem("CurrentSessionID");
+            var prvSession = parseFloat(nxtSession);
+            prvSession = prvSession;
            
-          for( var i = prvSession; i != 0; i--)
-          {
-            var SessionLog = localStorage.getItem("button"+i);
-            $("#earlierSessionLog").append(SessionLog);
-        }
+            for( var i = prvSession; i != 0; i--)
+            {
+                var SessionLog = localStorage.getItem("button"+i);
+                $("#earlierSessionLog").append(SessionLog);
+            }
         });
     </script>
 </body>

@@ -33,8 +33,8 @@ function CreateButton()
 $("#timerCnfrm").click(function(){
   Progress = "0%";
   setTime = $("#timeSelect").val();
-  localStorage.setItem("time"+SessionID, setTime);
-  localStorage.setItem("progress"+SessionID, Progress);
+  localStorage.setItem("time"+SessionID, setTime); //localStorage 
+  localStorage.setItem("progress"+SessionID, Progress); //localStorage
 });
 
 //lets start knop op de session settings pagina listener
@@ -77,6 +77,6 @@ function setBubble(range, bubble) {
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8- newVal * 0.15}px))`;
 
-  localStorage.setItem("frequency"+SessionID, val);
+  localStorage.setItem("frequency"+SessionID, val); //localStorage
 }
 
