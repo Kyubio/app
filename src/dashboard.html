@@ -58,6 +58,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
+    <script src="js/timer.js"></script>
     <script>
         $( document ).ready(function() {
             var nxtSession = localStorage.getItem("CurrentSessionID");
@@ -69,6 +70,13 @@
                 var SessionLog = localStorage.getItem("button"+i);
                 $("#earlierSessionLog").append(SessionLog);
             }
+            var buttonID;
+
+            $(".buttonSelector").click(function(){           
+                buttonID = $(this).attr('id');
+                localStorage.setItem("pressedButton", buttonID);
+            })
+           
         });
     </script>
 </body>
