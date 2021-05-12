@@ -30,68 +30,71 @@
 
 <body>
 
-    <!-- header -->
-    <header>
-        <h1>KYUBIO</h1>
-        <h2>Session</h2>
-    </header>
+    <div class="content-container">
+        <!-- header -->
+        <header>
+            <h1>KYUBIO</h1>
+            <h2>Session</h2>
+        </header>
 
-    
-    <div class="settings-Title">
-        <h1>Signals</h1>
-    </div>
 
-    <div class="setting-area">
-        <div class="flex-container" style="margin-bottom: 30px;">
-            <div>
-                Vibrations 
-            </div>  
-            <div>
-                <label class="switch" id="vibrations">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
+        <div class="settings-Title">
+            <h1>Signals</h1>
+        </div>
+
+        <div class="setting-area">
+            <div class="flex-container" style="margin-bottom: 30px;">
+                <div>
+                    Vibrations
+                </div>
+                <div>
+                    <label class="switch" id="vibrations">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div>
+                    Sounds
+                </div>
+                <div>
+                    <label class="switch" id="sounds">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
             </div>
         </div>
-        <div class="flex-container">
-            <div>
-                Sounds 
-            </div>  
-            <div>
-                <label class="switch" id="sounds">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
+
+        <div class="settings-Title">
+            <h1>Frequency</h1>
+        </div>
+
+
+        <div class="setting-area">
+            <div class="flex-container" style="margin-bottom: 10px;">
+                <div>
+                    2 sec
+                </div>
+                <div>
+                    20 sec
+                </div>
+            </div>
+            <div class="freqContainer">
+                <input type="range" class="freqSlider" min="2" max="20" step="1" value="5">
+                <output class="freqVal"></output>
             </div>
         </div>
-    </div>
 
-    <div class="settings-Title">
-        <h1>Frequency</h1>
-    </div>
+        <!--start timer knop-->
+        <a href="dashboard.html">
+            <button id="settingsCnfrm">
+                <p><i class="far fa-thumbs-up"></i> Let's start</p>
+            </button>
+        </a>
 
-    
-    <div class="setting-area">
-        <div class="flex-container" style="margin-bottom: 10px;">   
-            <div>
-                2 sec
-            </div>
-            <div>
-                20 sec
-            </div>
-        </div>
-        <div class="freqContainer">
-            <input type="range" class="freqSlider" min="2" max="20" step="1" value="5">
-            <output class="freqVal"></output>
-        </div>
     </div>
-
-    <!--start timer knop-->
-    <a href="dashboard.html">
-        <button id="settingsCnfrm">
-            <p><i class="far fa-thumbs-up"></i> Let's start</p>
-        </button>
-    </a>
 
     <script>
         MQTTconnect();

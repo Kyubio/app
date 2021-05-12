@@ -23,31 +23,38 @@
     <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
-    
+
 </head>
 
 <body>
 
-    <!-- header -->
-    <header>
-        <h1>KYUBIO</h1>
-        <h2>Focus Session</h2>
-    </header>
+    <div class="content-container">
+        <!-- header -->
+        <header>
+            <h1>KYUBIO</h1>
+            <h2>Focus Session</h2>
+        </header>
 
-    
-    <div class="setTime-Title">
-        <h1>Set time</h1>
+
+        <div class="setTime-Title">
+            <h1>Set time</h1>
+        </div>
+
+        <div class="time-container">
+            <p>hours</p>
+            <p>minutes</p>
+        </div>
+
+        <div>
+            <input type="time" id="timeSelect" name="timeSelect" required value="00:00">
+        </div>
+
+        <a href="sessionSettings.html">
+            <button id="timerCnfrm">
+                <p><i class="far fa-thumbs-up"></i> Continue</p>
+            </button>
+        </a>
     </div>
-
-    <div>
-        <input type="time" id="timeSelect" name="timeSelect" required>
-    </div>
-
-    <a href="sessionSettings.html">
-        <button id="timerCnfrm">
-            <p><i class="far fa-thumbs-up"></i> Continue</p>
-        </button>
-    </a>
 
 
 
