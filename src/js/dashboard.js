@@ -49,7 +49,7 @@ $("#timerCnfrm").click(function () {
 });
 
 //lets start knop op de session settings pagina listener
-function settingsCnfrm() {
+$("#settingsCnfrm").click(function () {
     console.log("clicked succesfully");
     //zet hier de code om de timer in mqtt te starten
     mqtt.subscribe("trilMotor");
@@ -62,7 +62,7 @@ function settingsCnfrm() {
     var NubSession = parseFloat(SessionID);
     NubSession = NubSession + 1;
     localStorage.setItem("CurrentSessionID", NubSession);
-};
+});
 
 //frequency slider js
 const allRanges = document.querySelectorAll(".freqContainer");
@@ -87,4 +87,4 @@ function setBubble(range, bubble) {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 
     localStorage.setItem("frequency" + SessionID, val); //localStorage
-};
+}
