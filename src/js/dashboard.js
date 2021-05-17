@@ -35,16 +35,7 @@ function CreateButton() {
     setTime = localStorage.getItem("time" + curSession);
     Progress = localStorage.getItem("progress" + curSession);
 
-    lastSessionLog =
-        "<a class='buttonSelector' id='" +
-        SessionID +
-        "' href='sessionTimer.html'><button class='SessionLog'> <div> <div id='progression'>" +
-        Progress +
-        "</div> <div> <p>" +
-        logDate +
-        "</p> <p>" +
-        setTime +
-        "</p> </div> <i class='far fa-chevron-right'></i></div> </button></a>";
+    lastSessionLog = "<a class='buttonSelector' id='" + SessionID + "' href='sessionTimer.html'><button class='SessionLog'> <div> <div id='progression'>" + Progress + "</div> <div> <p>" + logDate + "</p> <p>" + setTime + "</p> </div> <i class='far fa-chevron-right'></i></div> </button></a>";
     localStorage.setItem("button" + curSession, lastSessionLog);
 }
 
@@ -59,6 +50,7 @@ $("#timerCnfrm").click(function () {
 
 //lets start knop op de session settings pagina listener
 $("#settingsCnfrm").click(function () {
+    console.log("clicked succesfully");
     //zet hier de code om de timer in mqtt te starten
     mqtt.subscribe("trilMotor");
     msgTrilMotor = new Paho.MQTT.Message("1");
