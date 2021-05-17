@@ -1,25 +1,25 @@
-const cacheName = 'kyubio-v1';
+const cacheName = "kyubio-v1";
 const staticAssets = [
-    './',
-    './index.html',
-    './css/compiled/reset.min.css',
-    './css/compiled/fontawesome.min.css',
-    './css/compiled/style.min.css',
-    './js/jquery-min.js',
-    './js/main.js',
+    "./",
+    "./index.html",
+    "./css/compiled/reset.min.css",
+    "./css/compiled/fontawesome.min.css",
+    "./css/compiled/style.min.css",
+    "./js/jquery-min.js",
+    "./js/main.js",
 ];
 
-self.addEventListener('install', async e => {
+self.addEventListener("install", async (e) => {
     const cache = await caches.open(cacheName);
     await cache.addAll(staticAssets);
     return self.skipWaiting();
 });
 
-self.addEventListener('activate', e => {
+self.addEventListener("activate", (e) => {
     self.clients.claim();
 });
 
-self.addEventListener('fetch', async e => {
+self.addEventListener("fetch", async (e) => {
     const req = e.request;
     const url = new URL(req.url);
 
