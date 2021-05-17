@@ -55,7 +55,7 @@ $("#start-counter").click(function(){
             let time = timeRunning;
             let color = ('color' in chart.dataset) ? chart.dataset.color : "#4EC7EB";
             let size = ('size' in chart.dataset) ? chart.dataset.size : "100";
-            let stroke = ('stroke' in chart.dataset) ? chart.dataset.stroke : "1";
+            let stroke = ('stroke' in chart.dataset) ? chart.dataset.stroke : "1";       
             charts[i].innerHTML = createCircleChart(percent, color, size, stroke, time);
         }
     },300)
