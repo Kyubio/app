@@ -1,4 +1,5 @@
-@import 'variables';
+@import "variables";
+
 body {
     background: $bgGradient;
     max-width: 600px;
@@ -10,11 +11,11 @@ header {
     text-align: center;
     margin-top: 40px;
     h1 {
-        font-family: 'Aquire', sans-serif;
+        font-family: "Aquire", sans-serif;
         font-size: 29px;
     }
     h2 {
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 19px;
         font-weight: 400;
         color: $bgColor;
@@ -35,7 +36,7 @@ header {
     justify-content: center;
     align-items: center;
     h1 {
-        font-family: 'Aquire', sans-serif;
+        font-family: "Aquire", sans-serif;
         font-size: 61px;
         color: #fff;
     }
@@ -48,7 +49,7 @@ header {
     box-shadow: $buttonShadow;
     color: #fff;
     p {
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Montserrat", sans-serif;
         font-size: 17px;
         font-weight: 400;
         text-align: center;

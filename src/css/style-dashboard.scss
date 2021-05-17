@@ -1,3 +1,5 @@
+@import "variables";
+
 .content-container {
     position: relative;
     height: 90vh;
@@ -45,6 +47,10 @@
     width: 100%;
 }
 
+.fa-info-circle {
+    color: #43b1d6;
+    margin-left: 5px;
+}
 
 /* setTime.php css code*/
 
@@ -79,61 +85,68 @@
     padding: 100px 85px 0 80px;
 }
 
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.information {
+    display: flex;
+    justify-content: flex-start;
+}
+
 // selecting timer input field
-input[type=time] {
+input[type="time"] {
     border: none;
     background-color: transparent;
-    color: #4EC7EB;
+    color: #4ec7eb;
     font-size: 60px;
     font-family: montserrat;
     width: 100%;
 }
 
-input[type=time]::-webkit-datetime-edit-fields-wrapper {
+input[type="time"]::-webkit-datetime-edit-fields-wrapper {
     display: flex;
 }
 
-input[type=time]::-webkit-datetime-edit-text {
+input[type="time"]::-webkit-datetime-edit-text {
     padding: 19px 10px;
 }
-
 
 /* Hour */
 
-input[type=time]::-webkit-datetime-edit-hour-field {
+input[type="time"]::-webkit-datetime-edit-hour-field {
     background-color: transparent;
     padding: 19px 10px;
 }
-
 
 /* Minute */
 
-input[type=time]::-webkit-datetime-edit-minute-field {
+input[type="time"]::-webkit-datetime-edit-minute-field {
     background-color: transparent;
     padding: 19px 10px;
 }
 
-
 /* AM/PM */
 
-input[type=time]::-webkit-datetime-edit-ampm-field {
+input[type="time"]::-webkit-datetime-edit-ampm-field {
     background-color: #7155d3;
     border-radius: 15%;
     color: #fff;
     padding: 19px 10px;
 }
 
-
 /* 'X' button for resetting/clearing time */
 
-input[type=time]::-webkit-clear-button {
+input[type="time"]::-webkit-clear-button {
     display: none;
 }
 
-
 /* Up/Down arrows for incrementing/decrementing the value */
 
-input[type=time]::-webkit-inner-spin-button {
+input[type="time"]::-webkit-inner-spin-button {
     display: none;
 }
 
@@ -145,7 +158,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 #timeSelect {
     padding-left: 50px;
 }
-
 
 /* setTime.php css code*/
 
@@ -220,15 +232,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     }
 }
 
-input:checked+.slider {
+input:checked + .slider {
     background-color: #43b1d6;
 }
 
-input:focus+.slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #43b1d6;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
     transform: translateX(26px);
     background-color: white;
 }

@@ -1,83 +1,5 @@
 @import "variables";
 
-.connection-text {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    h1 {
-        font-family: "Montserrat", sans-serif;
-        font-size: 19px;
-        font-weight: 700;
-    }
-    p {
-        font-family: "Montserrat", sans-serif;
-        font-size: 19px;
-        font-weight: 400;
-        line-height: 23px;
-        color: $bgColor;
-        margin-top: 4px;
-    }
-}
-
-a {
-    font-family: "Montserrat", sans-serif;
-    font-size: 17px;
-    font-weight: 400;
-    padding: 15px 0;
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.connection-module {
-    width: 100%;
-    background: #fff;
-    border-radius: $buttonRadius;
-    box-shadow: $buttonShadow;
-    margin-top: 30px;
-    h1 {
-        font-family: "Montserrat", sans-serif;
-        font-size: 17px;
-        font-weight: 400;
-        padding: 22px 22px 12px 22px;
-    }
-    .cubes-nearby {
-        color: $bgColor;
-        padding: 0 22px 10px 22px;
-        p {
-            font-family: "Montserrat", sans-serif;
-            font-size: 17px;
-            font-weight: 400;
-            padding: 15px 0;
-            &:hover {
-                cursor: pointer;
-            }
-        }
-    }
-}
-
-.title-container {
-    display: flex;
-}
-
-.color-blue {
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: $bgColor;
-    margin-top: 6px;
-}
-
-#changeName {
-    margin-top: 30px;
-    border-radius: 15px;
-    border: none;
-    padding: 16px;
-    width: 100%;
-    &:focus {
-        border: 1px solid $bgColor;
-    }
-}
-
 // modal
 
 /* The Modal (background) */
@@ -170,12 +92,6 @@ a {
     color: white;
     bottom: 40px;
     position: absolute;
-}
-
-.button {
-    a {
-        color: #fff;
-    }
 }
 
 /* Add Animation */

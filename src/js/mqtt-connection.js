@@ -15,25 +15,24 @@ function onMessageArrived(msg) {
     console.log(out_msg);
 }
 
-    //callback function
+//callback function
 function onConnect() {
     console.log("Connected");
     mqtt.subscribe("trilMotor");
-    message = new Paho.MQTT.Message("het werkt :D");//onconnnect send message
+    message = new Paho.MQTT.Message("het werkt :D"); //onconnnect send message
     message.destinationName = "trilMotor";
-    mqtt.send(message); 
+    mqtt.send(message);
 }
 
 function MQTTconnect() {
     console.log("connecting to" + host + "" + port);
     mqtt = new Paho.MQTT.Client(host, port, "clientjs");
-    
+
     var options = {
         timeout: 3,
         onSuccess: onConnect,
         onFailure: onFailure,
     };
-    mqtt.onMessageArrived = onMessageArrived
+    mqtt.onMessageArrived = onMessageArrived;
     mqtt.connect(options);
 }
-
