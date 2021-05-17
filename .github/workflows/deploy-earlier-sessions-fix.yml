@@ -22,4 +22,5 @@ jobs:
                   password: ${{ secrets.HERA_TESTS_PASSWORD }}
                   server-dir: ${{ secrets.HERA_TESTS_REMOTE }}
                   local-dir: src/
-                  exclude: *.scss
+                  exclude: webshop/
+                    - *.scss
