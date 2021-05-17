@@ -31,6 +31,7 @@ var frequency = 5;
 var lastSessionLog;
 
 function CreateButton() {
+    console.log("button creation started");
     var curSession = localStorage.getItem("CurrentSessionID");
     setTime = localStorage.getItem("time" + curSession);
     Progress = localStorage.getItem("progress" + curSession);
@@ -50,13 +51,15 @@ $("#timerCnfrm").click(function () {
 
 //lets start knop op de session settings pagina listener
 $("#settingsCnfrm").click(function () {
-    console.log("clicked succesfully");
+    
     //zet hier de code om de timer in mqtt te starten
     mqtt.subscribe("trilMotor");
     msgTrilMotor = new Paho.MQTT.Message("1");
     msgTrilMotor.destinationName = "trilMotor";
     mqtt.send(msgTrilMotor);
     console.log(msgTrilMotor);
+
+    console.log("clicked succesfully");
 
     CreateButton();
     var NubSession = parseFloat(SessionID);
