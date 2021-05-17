@@ -60,3 +60,24 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 };
+
+//modal frequency
+var info = document.getElementById("info-circle");
+
+function toggleFrequencyShow() {
+    info.style.display = "block";
+}
+
+function toggleFrequencyHide() {
+    info.style.display = "none";
+}
+
+span.onclick = function () {
+    info.style.display = "none";
+};
+
+window.onclick = function (event) {
+    if (event.target == info) {
+        info.style.display = "none";
+    }
+};

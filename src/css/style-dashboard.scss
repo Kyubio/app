@@ -47,6 +47,11 @@
     width: 100%;
 }
 
+.fa-info-circle {
+    color: #43b1d6;
+    margin-left: 5px;
+}
+
 /* setTime.php css code*/
 
 .setTime-Title {
@@ -78,6 +83,18 @@
     justify-content: space-between;
     width: 100%;
     padding: 100px 85px 0 80px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.information {
+    display: flex;
+    justify-content: flex-start;
 }
 
 // selecting timer input field
