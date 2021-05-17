@@ -50,18 +50,17 @@ $("#timerCnfrm").click(function () {
 
 //lets start knop op de session settings pagina listener
 $("#settingsCnfrm").click(function () {
-    console.log("clicked succesfully");
+    CreateButton();
+    var NubSession = parseFloat(SessionID);
+    NubSession = NubSession + 1;
+    localStorage.setItem("CurrentSessionID", NubSession);
+
     //zet hier de code om de timer in mqtt te starten
     mqtt.subscribe("trilMotor");
     msgTrilMotor = new Paho.MQTT.Message("1");
     msgTrilMotor.destinationName = "trilMotor";
     mqtt.send(msgTrilMotor);
     console.log(msgTrilMotor);
-
-    CreateButton();
-    var NubSession = parseFloat(SessionID);
-    NubSession = NubSession + 1;
-    localStorage.setItem("CurrentSessionID", NubSession);
 });
 
 //frequency slider js
