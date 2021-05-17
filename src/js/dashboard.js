@@ -52,12 +52,12 @@ $("#timerCnfrm").click(function () {
 //lets start knop op de session settings pagina listener
 $("#settingsCnfrm").click(function () {
     
-    //zet hier de code om de timer in mqtt te starten
+    /*zet hier de code om de timer in mqtt te starten
     mqtt.subscribe("trilMotor");
     msgTrilMotor = new Paho.MQTT.Message("1");
     msgTrilMotor.destinationName = "trilMotor";
     mqtt.send(msgTrilMotor);
-    console.log(msgTrilMotor);
+    console.log(msgTrilMotor);*/
 
     console.log("clicked succesfully");
 
