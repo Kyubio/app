@@ -1,24 +1,40 @@
+var CurrentSessionID;
+var SessionID = localStorage.getItem("CurrentSessionID");
+if(SessionID == null)
+{
+  localStorage.setItem("CurrentSessionID", 1);
+}
+
 var d = new Date;
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var month = months[d.getMonth()];
 var logDate = d.getDate() + " " +  month;
 
-var Progress = "75%";
+var Progress;
 
-var setTime = "1:40";
+var setTime;
 
 var frequency = 5;
 
+var lastSessionLog;
+
 function CreateButton()
 {
-    var lastSessionLog = "<button class='SessionLog'> <div> <div id='progression'>" + Progress + "</div> <div> <p>" + logDate + "</p> <p>" + setTime + "</p> </div> <i class='far fa-chevron-right'></i></div> </button>";
+  var curSession = localStorage.getItem("CurrentSessionID");
+  setTime = localStorage.getItem("time"+curSession);
+  Progress = localStorage.getItem("progress"+curSession);
 
-    $("#earlierSessionLog").append(lastSessionLog);
+  lastSessionLog = "<button class='SessionLog'> <div> <div id='progression'>" + Progress + "</div> <div> <p>" + logDate + "</p> <p>" + setTime + "</p> </div> <i class='far fa-chevron-right'></i></div> </button>";
+  localStorage.setItem("button"+curSession, lastSessionLog);
+  
 }
 
 //check welke tijd er wordt ingesteld en zet deze in de var setTime
-$("#timerCnfrm").change(function(){
-    setTime = $("#timeSelect").val();
+$("#timerCnfrm").click(function(){
+  Progress = "0%";
+  setTime = $("#timeSelect").val();
+  localStorage.setItem("time"+SessionID, setTime); //localStorage 
+  localStorage.setItem("progress"+SessionID, Progress); //localStorage
 });
 
 //lets start knop op de session settings pagina listener
@@ -29,7 +45,13 @@ $("#settingsCnfrm").click(function(){
     msgTrilMotor = new Paho.MQTT.Message("1");
     msgTrilMotor.destinationName = "trilMotor";
     mqtt.send(msgTrilMotor);
-    console.log(msgTrilMotor)
+    console.log(msgTrilMotor);
+
+    CreateButton();
+    var NubSession = parseFloat(SessionID);
+    NubSession = NubSession + 1;
+    localStorage.setItem("CurrentSessionID", NubSession);
+
     
 });
 
@@ -54,4 +76,7 @@ function setBubble(range, bubble) {
 
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8- newVal * 0.15}px))`;
+
+  localStorage.setItem("frequency"+SessionID, val); //localStorage
 }
+
