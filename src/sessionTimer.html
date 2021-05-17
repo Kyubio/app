@@ -23,6 +23,9 @@
     <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
     <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
+    <link rel="stylesheet" href="css/timer.css" />
+
+    
 </head>
 
 <body>
@@ -30,55 +33,30 @@
     <!-- header -->
     <header>
         <h1>KYUBIO</h1>
-        <h2>Home</h2>
+        <h2>Timer</h2>
     </header>
 
     
-    <div class="dashboard-titles">
+    <div class="setTime-Title">
         <h1>Focus Session</h1>
     </div>
 
-    <a href="setTimer.html">
-        <button id="session-button">
-            <p>new session<i class="far fa-arrow-right"></i></p>
-            <img class="cubeView" src="img/cube-view.png">
-        </button>
-    </a>
-
-    <div class="dashboard-titles">
-        <h1 style="color: #43B1D6; margin: 40px 0 5px 0;">Earlier focus sessions</h1>
-        <div id="earlierSessionLog">
-
-        </div>
+    <div class="timerProgression">   
+        <div class="mkCharts" data-size="300" data-stroke="1"></div>
     </div>
 
-
-
+    <button id="start-counter">
+        <p>start</p>
+    </button>
+        <button id="stop-counter">
+            <p>Stop</p>
+        </button>
+    
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/timer.js"></script>
-    <script>
-        $( document ).ready(function() {
-            var nxtSession = localStorage.getItem("CurrentSessionID");
-            var prvSession = parseFloat(nxtSession);
-            prvSession = prvSession;
-           
-            for( var i = prvSession; i != 0; i--)
-            {
-                var SessionLog = localStorage.getItem("button"+i);
-                $("#earlierSessionLog").append(SessionLog);
-            }
-            var buttonID;
-
-            $(".buttonSelector").click(function(){           
-                buttonID = $(this).attr('id');
-                localStorage.setItem("pressedButton", buttonID);
-            })
-           
-        });
-    </script>
 </body>
 
 </html>
