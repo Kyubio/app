@@ -35,7 +35,16 @@ function CreateButton() {
     setTime = localStorage.getItem("time" + curSession);
     Progress = localStorage.getItem("progress" + curSession);
 
-    lastSessionLog = "<a class='buttonSelector' id='" + SessionID + "' href='sessionTimer.html'><button class='SessionLog'> <div> <div id='progression'>" + Progress + "</div> <div> <p>" + logDate + "</p> <p>" + setTime + "</p> </div> <i class='far fa-chevron-right'></i></div> </button></a>";
+    lastSessionLog =
+        "<a class='buttonSelector' id='" +
+        SessionID +
+        "' href='sessionTimer.html'><button class='SessionLog'> <div> <div id='progression'>" +
+        Progress +
+        "</div> <div> <p>" +
+        logDate +
+        "</p> <p>" +
+        setTime +
+        "</p> </div> <i class='far fa-chevron-right'></i></div> </button></a>";
     localStorage.setItem("button" + curSession, lastSessionLog);
 }
 
