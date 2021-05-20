@@ -5,7 +5,14 @@ var timeRunning;
 
 var timeRun;
 
-CounterStart();
+var progression = localStorage.getItem("progress"+ thisSession);
+
+if(progression >= 100)
+{}
+else
+{
+    CounterStart();
+}
 
 function CounterStart() {
     var origionalTime = localStorage.getItem("time" + thisSession);
