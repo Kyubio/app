@@ -31,13 +31,18 @@ function CounterStart() {
 
         timeleft = timeleft - timefreq;
 
-        var hours = Math.floor(
-            (timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
 
-        timeRunning = hours + ":" + minutes;
-
+        if(minutes >= 0 && minutes <= 9)
+        {
+            timeRunning = hours + ":0" +minutes;
+        }
+        else
+        {
+            timeRunning = hours + ":" + minutes;
+        }
+        
         let charts = document.getElementsByClassName("mkCharts");
         localStorage.setItem("remaining-time" + thisSession, timeRunning);
 
