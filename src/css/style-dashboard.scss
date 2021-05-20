@@ -300,13 +300,16 @@ input:checked + .slider:before {
     margin: 5px 0;
     width: 100%;
     height: 95px;
-    padding: 10px 20px 0 0;
+    padding: 10px 25px 0 0;
+    font-family: "Montserrat", sans-serif;
 }
 
 .chevron_sessionButton
 {
     position: relative;
     float: right;
+    top: -52px;
+    font-size: 20px;
     color: #43b1d6;
 }
 
