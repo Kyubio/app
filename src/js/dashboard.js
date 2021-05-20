@@ -38,9 +38,7 @@ function CreateButton() {
     lastSessionLog =
         "<a class='buttonSelector' id='" +
         SessionID +
-        "' href='sessionTimer.html'><button class='SessionLog'> <div> <div id='progression'>" +
-        Progress +
-        "</div> <div> <p>" +
+        "' href='sessionTimer.html'><button class='SessionLog'> <div class='mkCharts_progress'></div> <div> <p>" +
         logDate +
         "</p> <p>" +
         setTime +
@@ -96,3 +94,4 @@ function setBubble(range, bubble) {
 
     localStorage.setItem("frequency" + SessionID, val); //localStorage
 }
+

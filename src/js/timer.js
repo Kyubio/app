@@ -99,3 +99,8 @@ for (let i = 0; i < charts.length; i++) {
     let stroke = "stroke" in chart.dataset ? chart.dataset.stroke : "1";
     charts[i].innerHTML = createCircleChart(percent, color, size, stroke, time);
 }
+
+$('.chevron-thing').click(function(){
+    $('.Start-Stop').css("display", "block");
+    $('.chevron-thing').css("display", "none");
+})

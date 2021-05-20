@@ -40,12 +40,25 @@
             <div class="mkCharts" data-size="300" data-stroke="1"></div>
         </div>
 
-        <button id="start-counter">
-            <p>start</p>
-        </button>
-        <button id="stop-counter">
-            <p>Stop</p>
-        </button>
+        <div class="Start-Stop">
+            <div style="float: left; margin-left: 15px;">
+                <button id="pause-counter" class="ss_buttons" style="display: none;">
+                    <p id="Pause-Btn">Pause</p>
+                </button>
+                <button id="start-counter" class="ss_buttons">
+                    <p id="Start-Btn">Start</p>
+                </button>
+            </div>
+            <div style="float: right; margin-right: 15px;">
+                <button id="stop-counter" class="ss_buttons">
+                    <p>Stop</p>
+                </button>
+            </div>
+            
+        </div>
+        <div class="chevron-thing">
+            <i class='far fa-chevron-up'></i>
+        </div>
 
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
