@@ -5,7 +5,9 @@ var timeRunning;
 
 var timeRun;
 
-$("#start-counter").click(function () {
+CounterStart();
+
+function CounterStart() {
     var origionalTime = localStorage.getItem("time" + thisSession);
     var orisplittedTime = origionalTime.split(":");
     var orihoursSec = orisplittedTime[0] * 3600000;
@@ -65,7 +67,19 @@ $("#start-counter").click(function () {
                 time
             );
         }
-    }, 300);
+    }, 1000);
+};
+
+$("#start-counter").click(function () {
+    CounterStart();
+    $('#start-counter').css("display", "none");
+    $('#pause-counter').css("display", "block");    
+});
+
+$("#pause-counter").click(function () {
+    clearInterval(timeRun);
+    $('#pause-counter').css("display", "none");
+    $('#start-counter').css("display", "block");
 });
 
 $("#stop-counter").click(function () {
@@ -103,4 +117,4 @@ for (let i = 0; i < charts.length; i++) {
 $('.chevron-thing').click(function(){
     $('.Start-Stop').css("display", "block");
     $('.chevron-thing').css("display", "none");
-})
+});
