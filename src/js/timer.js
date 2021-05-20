@@ -90,8 +90,15 @@ $("#start-counter").click(function () {
 
 $("#pause-counter").click(function () {
     clearInterval(timeRun);
-    $('#pause-counter').css("display", "none");
-    $('#start-counter').css("display", "block");
+    
+    if(progression >= 100)
+    {}
+    else
+    {
+        $('#pause-counter').css("display", "none");
+        $('#start-counter').css("display", "block");
+    }
+    
 });
 
 $("#stop-counter").click(function () {

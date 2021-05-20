@@ -38,11 +38,11 @@ function CreateButton() {
     lastSessionLog =
         "<a class='buttonSelector' id='" +
         SessionID +
-        "' href='sessionTimer.html'><button class='SessionLog'> <div class='mkCharts_progress'></div> <div> <p>" +
+        "' href='sessionTimer.html'><button class='SessionLog'> <div class='mkCharts_progress'></div> <div class='session_dt'> <div class='Session_date'>" +
         logDate +
-        "</p> <p>" +
+        "</div> <div class='Session_time'>" +
         setTime +
-        "</p> </div> <i class='far fa-chevron-right'></i></div> </button></a>";
+        "</div> </div> <i class='far fa-chevron-right chevron_sessionButton'></i></div> </button></a>";
     localStorage.setItem("button" + curSession, lastSessionLog);
 }
 
@@ -50,8 +50,26 @@ function CreateButton() {
 $("#timerCnfrm").click(function () {
     Progress = "0";
     setTime = $("#timeSelect").val();
-    localStorage.setItem("time" + SessionID, setTime); //localStorage
-    localStorage.setItem("remaining-time" + SessionID, setTime); //localStorage
+
+    var splittedTime = setTime.split(":");
+    var hoursSec = splittedTime[0] * 3600000;
+    var minSec = splittedTime[1] * 60000;
+    var timeMili = hoursSec + minSec;
+
+    var hours = Math.floor((timeMili % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeMili % (1000 * 60 * 60)) / (1000 * 60));
+
+    if(minutes >= 0 && minutes <= 9)
+        {
+            time = hours + ":0" +minutes;
+        }
+        else
+        {
+            time = hours + ":" + minutes;
+        }
+
+    localStorage.setItem("time" + SessionID, time); //localStorage
+    localStorage.setItem("remaining-time" + SessionID, time); //localStorage
     localStorage.setItem("progress" + SessionID, Progress); //localStorage
 });
 
@@ -94,4 +112,5 @@ function setBubble(range, bubble) {
 
     localStorage.setItem("frequency" + SessionID, val); //localStorage
 }
+
 
