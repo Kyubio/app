@@ -1,4 +1,4 @@
-name: Deploy design-fixes
+name: Deploy design-fixes branch
 
 on:
     push:
