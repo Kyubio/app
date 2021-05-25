@@ -22,6 +22,8 @@
         <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
         <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
+
+
     </head>
 
     <body>
@@ -53,11 +55,13 @@
         <script type="text/javascript" src="js/main.js"></script>
         <script src="js/dashboard.js"></script>
         <script src="js/progress.js"></script>
+
         <script>
+            var nxtSession = localStorage.getItem("CurrentSessionID");
+            var prvSession = parseFloat(nxtSession);
+
             $(document).ready(function () {
-                var nxtSession = localStorage.getItem("CurrentSessionID");
-                var prvSession = parseFloat(nxtSession);
-                prvSession = prvSession;
+                
 
                 for (var i = prvSession; i != 0; i--) {
                     var SessionLog = localStorage.getItem("button" + i);
@@ -70,6 +74,22 @@
                     localStorage.setItem("pressedButton", buttonID);
                 });
             });
+
+            $('#earlierSessionLog').ready(function () {
+                var progress_percentage;
+                var curButton = 1;
+
+                while (curButton < nxtSession)
+                {
+                    var progress_percentage = localStorage.getItem("progress" + curButton);
+                    var pro_perc = parseFloat(progress_percentage);
+                    var rounded_pro_perc = Math.round( pro_perc );
+
+                    $(".progress-bar" + curButton + "").html(rounded_pro_perc + '%');
+                    curButton++;
+                }
+                
+            });
         </script>
     </body>
 </html>
@@ -79,17 +99,17 @@
 
     <a class='buttonSelector' id='" + SessionID + "' href='sessionTimer.html'>
         <button class='SessionLog'> 
-                <div class='mkCharts_progress'>
-
-                </div> 
-                <div class='session_dt'> 
-                    <div class='Session_date'>
-                        " + logDate + "
-                    </div> 
-                    <div class='Session_time'>
-                        " + setTime + "
-                    </div> 
-                </div> 
+            <div class='Session_progress'>
+                <div class='progress-bar"+SessionID+"'>                
+                </div>
+            </div> 
+            <div class='session_dt'> <div class='Session_date'>
+                " + logDate + "
+            </div> 
+            <div class='Session_time'>
+                " + setTime + "
+            </div> 
+            <div> 
                 <i class='far fa-chevron-right chevron_sessionButton'></i>
             </div> 
         </button>
