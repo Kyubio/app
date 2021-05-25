@@ -1,0 +1,26 @@
+name: Deploy design-fixes
+
+on:
+    push:
+        branches: [feature/design-fixes]
+
+    workflow_dispatch:
+
+jobs:
+    web-deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get latest code
+              uses: actions/checkout@v2.3.2
+
+            - name: Sync files
+              uses: SamKirkland/FTP-Deploy-Action@4.0.0
+              with:
+                  server: hera.fhict.nl
+                  username: ${{ secrets.hera_username }}
+                  password: ${{ secrets.hera_password }}
+                  server-dir: ${{ secrets.designfixes_remote }}
+                  local-dir: src/
+                  exclude: webshop/
+                      - *.scss
