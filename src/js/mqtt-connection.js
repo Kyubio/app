@@ -1,8 +1,8 @@
 // mqtt verbinding
 var mqtt;
 var reconnectTimeout = 2000;
-var host = "broker.mqttdashboard.com";
-var port = 8000;
+var host = "test.mosquitto.org";
+var port = 8081;
 
 function onFailure(message) {
     console.log("Connection Attempt to Host" + host + "failed");
@@ -27,8 +27,8 @@ function onConnect() {
 function MQTTconnect() {
     console.log("connecting to" + host + "" + port);
     mqtt = new Paho.MQTT.Client(host, port, "clientjs");
-
     var options = {
+        useSSL: true,
         timeout: 3,
         onSuccess: onConnect,
         onFailure: onFailure,
