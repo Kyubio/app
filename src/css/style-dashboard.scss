@@ -34,6 +34,7 @@
     h1 {
         margin: 50px 0 5px 0;
         font-weight: bold;
+        font-family: "Montserrat", sans-serif;
     }
 }
 
@@ -47,6 +48,7 @@
 .setTime-Title {
     margin: 50px 0 5px 0;
     font-weight: 600;
+    font-family: "Montserrat", sans-serif;
     text-align: center;
 }
 
@@ -154,6 +156,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .settings-Title {
     margin: 50px 0 5px 0;
     font-weight: bold;
+    font-family: "Montserrat", sans-serif;
 }
 
 #settingsCnfrm {
@@ -180,6 +183,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     border: none;
     outline: none;
     padding: 30px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .flex-container {
@@ -187,6 +191,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    font-family: "Montserrat", sans-serif;
 }
 
 .switch {
@@ -317,19 +322,30 @@ input:checked + .slider:before {
 {
     color: #43b1d6;
     font-size: 20px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .Session_time
 {
     font-size: 50px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .Session_progress
 {
     position: relative;
     float: left;
-    top: 30px;
+    top: -75px;
+    left: -10px;
+    display: inline;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
 
     font-size: 20px;
-    color: #43b1d6;
+    color: #43b1d6; 
+}
+
+.mkc_info
+{
+    font-family: "Montserrat", sans-serif;
 }

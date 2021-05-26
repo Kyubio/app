@@ -59,7 +59,6 @@ function CounterStart() {
             var remainingTime = timeMili - timeleft;
             remainingTime = remainingTime / timeMili;
             remainingTime = remainingTime * 100;
-            console.log(remainingTime);
             localStorage.setItem("progress" + thisSession, remainingTime);
         }
 
@@ -86,6 +85,13 @@ $("#start-counter").click(function () {
     CounterStart();
     $('#start-counter').css("display", "none");
     $('#pause-counter').css("display", "block");    
+
+    //zet hier de code om de timer in mqtt te starten
+    mqtt.subscribe("trilMotor");
+    msgTrilMotor = new Paho.MQTT.Message("1");
+    msgTrilMotor.destinationName = "trilMotor";
+    mqtt.send(msgTrilMotor);
+    console.log(msgTrilMotor);
 });
 
 $("#pause-counter").click(function () {
@@ -98,17 +104,29 @@ $("#pause-counter").click(function () {
         $('#pause-counter').css("display", "none");
         $('#start-counter').css("display", "block");
     }
-    
+    //zet hier de code om de timer in mqtt te starten
+    mqtt.subscribe("trilMotor");
+    msgTrilMotor = new Paho.MQTT.Message("0");
+    msgTrilMotor.destinationName = "trilMotor";
+    mqtt.send(msgTrilMotor);
+    console.log(msgTrilMotor);
 });
 
 $("#stop-counter").click(function () {
     clearInterval(timeRun);
+
+    //zet hier de code om de timer in mqtt te starten
+    mqtt.subscribe("trilMotor");
+    msgTrilMotor = new Paho.MQTT.Message("0");
+    msgTrilMotor.destinationName = "trilMotor";
+    mqtt.send(msgTrilMotor);
+    console.log(msgTrilMotor);
 });
 
 function createCircleChart(percent, color, size, stroke, time) {
     let svg = `<svg class="mkc_circle-chart" viewbox="0 0 36 36" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
         <path class="mkc_circle-bg" stroke="#eeeeee" stroke-width="${
-            stroke * 0.5
+            stroke * 1
         }" fill="none" d="M18 2.0845
               a 15.9155 15.9155 0 0 1 0 31.831
               a 15.9155 15.9155 0 0 1 0 -31.831"/>

@@ -38,11 +38,11 @@ function CreateButton() {
     lastSessionLog =
         "<a class='buttonSelector' id='" +
         SessionID +
-        "' href='sessionTimer.html'><button class='SessionLog'> <div class='Session_progress'><div class='progress-bar"+SessionID+"'></div></div> <div class='session_dt'> <div class='Session_date'>" +
+        "' href='sessionTimer.html'><button class='SessionLog'> <div class='session_dt'> <div class='Session_date'>" +
         logDate +
         "</div> <div class='Session_time'>" +
         setTime +
-        "</div> <div> <i class='far fa-chevron-right chevron_sessionButton'></i></div> </button></a>";
+        "</div></div>  <div class='Session_progress'><div id='progress-bar"+SessionID+"'></div></div><div> <i class='far fa-chevron-right chevron_sessionButton'></i></div> </button></a>";
     localStorage.setItem("button" + curSession, lastSessionLog);
 }
 

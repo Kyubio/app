@@ -85,7 +85,33 @@
                     var pro_perc = parseFloat(progress_percentage);
                     var rounded_pro_perc = Math.round( pro_perc );
 
-                    $(".progress-bar" + curButton + "").html(rounded_pro_perc + '%');
+                    function createCircleChart(percent, color, size, stroke, time) {
+                        let svg = `<svg class="mkc_circle-chart" viewbox="0 0 36 36" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+                            <path class="mkc_circle-bg" stroke="#eeeeee" stroke-width="${
+                                stroke * 1
+                            }" fill="none" d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="mkc_circle" stroke="${color}" stroke-width="${stroke}" stroke-dasharray="${percent},100" stroke-linecap="round" fill="none"
+                                d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <text class="mkc_info" x="50%" y="50%" alignment-baseline="central" text-anchor="middle" font-size="8">${time}%</text>
+                        </svg>`;
+                        return svg;
+                    }
+
+                    let charts = document.getElementById("progress-bar"+curButton+"");;
+
+                    let chart = charts;
+                    let percent = progress_percentage;
+                    let time = rounded_pro_perc;
+                    let color = "color" in chart.dataset ? chart.dataset.color : "#4EC7EB";
+                    let size = "size" in chart.dataset ? chart.dataset.size : "65";
+                    let stroke = "stroke" in chart.dataset ? chart.dataset.stroke : "4";
+                    charts.innerHTML = createCircleChart(percent, color, size, stroke, time);
+                    
+
                     curButton++;
                 }
                 
@@ -99,15 +125,17 @@
 
     <a class='buttonSelector' id='" + SessionID + "' href='sessionTimer.html'>
         <button class='SessionLog'> 
+            <div class='session_dt'> 
+                <div class='Session_date'>
+                " + logDate + "
+                </div> 
+                <div class='Session_time'>
+                    " + setTime + "
+                </div> 
+            </div>
             <div class='Session_progress'>
                 <div class='progress-bar"+SessionID+"'>                
                 </div>
-            </div> 
-            <div class='session_dt'> <div class='Session_date'>
-                " + logDate + "
-            </div> 
-            <div class='Session_time'>
-                " + setTime + "
             </div> 
             <div> 
                 <i class='far fa-chevron-right chevron_sessionButton'></i>
