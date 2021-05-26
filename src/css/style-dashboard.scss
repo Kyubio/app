@@ -93,7 +93,7 @@
 input[type="time"] {
     border: none;
     background-color: transparent;
-    color: #green;
+    color: #4ec7eb;
     font-size: 60px;
     font-family: montserrat;
     width: 100%;
@@ -149,7 +149,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 #timeSelect {
-    padding-left: 50px;
+    position: relative;
+    left: 50px;
 }
 
 /* setTime.php css code*/
