@@ -71,6 +71,11 @@ $("#timerCnfrm").click(function () {
     localStorage.setItem("time" + SessionID, time); //localStorage
     localStorage.setItem("remaining-time" + SessionID, time); //localStorage
     localStorage.setItem("progress" + SessionID, Progress); //localStorage
+
+    if(timeMili == 0)
+    {
+        localStorage.setItem("progress"+ SessionID, 100);
+    }
 });
 
 //lets start knop op de session settings pagina listener
