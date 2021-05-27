@@ -60,6 +60,9 @@ function CounterStart() {
             remainingTime = remainingTime / timeMili;
             remainingTime = remainingTime * 100;
             localStorage.setItem("progress" + thisSession, remainingTime);
+
+            console.log("done");
+            toggleFrequencyShow();
         }
 
         for (let i = 0; i < charts.length; i++) {
@@ -155,3 +158,50 @@ $('.chevron-thing').click(function(){
     $('.Start-Stop').css("display", "block");
     $('.chevron-thing').css("display", "none");
 });
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("modal1");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+function showChangeNameModule() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+//modal frequency
+var info = document.getElementById("finished");
+
+function toggleFrequencyShow() {
+    info.style.display = "block";
+}
+
+function toggleFrequencyHide() {
+    info.style.display = "none";
+}
+
+span.onclick = function () {
+    info.style.display = "none";
+};
+
+window.onclick = function (event) {
+    if (event.target == info) {
+        info.style.display = "none";
+    }
+};

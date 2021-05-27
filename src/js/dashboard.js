@@ -112,5 +112,3 @@ function setBubble(range, bubble) {
 
     localStorage.setItem("frequency" + SessionID, val); //localStorage
 }
-
-

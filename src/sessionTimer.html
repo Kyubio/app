@@ -23,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
         <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
         <link rel="stylesheet" href="css/compiled/style-timer.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/compiled/style-modal.min.css">
         <script src="js/mqtt-connection.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
     </head>
@@ -62,6 +63,33 @@
         </div>
         <div class="chevron-thing">
             <i class='far fa-chevron-up'></i>
+        </div>
+
+        <div id="finished" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content-timer">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h1>Congratulations</h1>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Congratulations you finished the session,
+                        go back to home to continue. 
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="showConnectionModule()">
+                        <div class="button">
+                            <a onclick="toggleFrequencyHide()" href="dashboard.html">
+                                <p style="color: white;">
+                                    Home
+                                </p>
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <script>
