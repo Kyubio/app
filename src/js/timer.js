@@ -12,12 +12,11 @@ var settime_split = settime.split(":");
 var settime_sec = settime_split[0] * 3600000;
 var settime_mili = settime_split[1] * 60000;
 
+if(settime_mili == 0)
+{}
+
 if(progression >= 100)
 {}
-if(settime_mili == 0)
-{
-    localStorage.setItem("progress"+ thisSession, 100);
-}
 else
 {
     CounterStart();
