@@ -77,6 +77,11 @@ $("#timerCnfrm").click(function () {
         localStorage.setItem("progress"+ SessionID, 100);
         toggleFrequencyShow();   
     }
+    if(localStorage.getItem("time"+SessionID) == "NaN:NaN" )
+    {
+        toggleFrequencyShow();  
+        console.log("Nu probeer je het echt kapot te maken")
+    }
     else
     {
         window.location.href = "sessionSettings.html";
