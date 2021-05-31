@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Kyubio</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://kyubio.i441891.hera.fhict.nl/dashboard" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-180x180.png" />
+        <link rel="stylesheet" type="text/css" href="css/compiled/reset.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+        <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
+        <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
+        <link rel="stylesheet" type="text/css" href="css/compiled/style-modal.min.css">
+        <script src="js/mqtt-connection.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="content-container">
+            <!-- header -->
+            <header>
+                <h1>KYUBIO</h1>
+                <h2>Session</h2>
+            </header>
+            
+            <a href="setTimer.html">
+                <button id="back">
+                    <i class='far fa-chevron-left'></i>
+                </button>
+            </a>
+
+            <div class="settings-Title">
+                <h1>Signals</h1>
+            </div>
+
+            <div class="setting-area">
+                <div class="flex-container" style="margin-bottom: 30px">
+                    <div>Vibrations</div>
+                    <div>
+                        <label class="switch" id="vibrations">
+                            <input type="checkbox" />
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-container">
+                    <div>Sounds</div>
+                    <div>
+                        <label class="switch" id="sounds">
+                            <input type="checkbox" />
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-Title information">
+                <h1>Frequency</h1>
+                <a onclick="toggleFrequencyShow()"
+                    ><i class="far fa-info-circle"></i
+                ></a>
+            </div>
+
+            <div class="setting-area">
+                <div class="flex-container" style="margin-bottom: 10px">
+                    <div>2 sec</div>
+                    <div>20 sec</div>
+                </div>
+                <div class="freqContainer">
+                    <input
+                        type="range"
+                        class="freqSlider"
+                        min="2"
+                        max="20"
+                        step="1"
+                        value="5"
+                    />
+                    <output class="freqVal"></output>
+                </div>
+            </div>
+
+            <!--start timer knop-->
+            <a href="dashboard.html">
+                <button id="settingsCnfrm">
+                    <p><i class="far fa-thumbs-up"></i> Let's start</p>
+                </button>
+            </a>
+        </div>
+
+        <!-- modal Frequency -->
+        <div id="info-circle" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h1>Frequency</h1>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        With frequency you set the interval after each signal. 
+                        this wat you can adjust this to between 2 and 20 second. 
+                        which means that if there is no button pressed for the set amound
+                        of time the signal will go off. 
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="showConnectionModule()">
+                        <div class="button">
+                            <a onclick="toggleFrequencyHide()">
+                                <p>
+                                    <i class="far fa-thumbs-up"></i> &nbsp; Okay
+                                </p>
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            MQTTconnect();
+        </script>
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script src="js/dashboard.js"></script>
+    </body>
+</html>

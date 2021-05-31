@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Kyubio</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://kyubio.i441891.hera.fhict.nl/dashboard" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-180x180.png" />
+        <link rel="stylesheet" type="text/css" href="css/compiled/reset.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+        <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
+        <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
+        <link rel="stylesheet" type="text/css" href="css/compiled/style-modal.min.css">
+
+
+    </head>
+
+    <body>
+        <!-- header -->
+        <header>
+            <h1>KYUBIO</h1>
+            <h2>Home</h2>
+        </header>
+
+        <div class="dashboard-titles">
+            <h1>Focus Session</h1>
+        </div>
+
+        <a href="setTimer.html">
+            <button id="session-button">
+                <p>new session<i class="far fa-arrow-right"></i></p>
+                <img class="cubeView" src="img/cube-view.png" />
+            </button>
+        </a>
+
+        <div class="dashboard-titles">
+            <h1 style="color: #43b1d6; margin: 40px 0 5px 0">
+                Earlier focus sessions
+            </h1>
+            <div id="earlierSessionLog"></div>
+        </div>
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/progress.js"></script>
+
+        <script>
+            var nxtSession = localStorage.getItem("CurrentSessionID");
+            var prvSession = parseFloat(nxtSession);
+
+            $(document).ready(function () {
+                
+
+                for (var i = prvSession; i != 0; i--) {
+                    var SessionLog = localStorage.getItem("button" + i);
+                    $("#earlierSessionLog").append(SessionLog);
+                }
+                var buttonID;
+
+                $(".buttonSelector").click(function () {
+                    buttonID = $(this).attr("id");
+                    localStorage.setItem("pressedButton", buttonID);
+                });
+            });
+
+            $('#earlierSessionLog').ready(function () {
+                var progress_percentage;
+                var curButton = 1;
+
+                while (curButton < nxtSession)
+                {
+                    var progress_percentage = localStorage.getItem("progress" + curButton);
+                    var pro_perc = parseFloat(progress_percentage);
+                    var rounded_pro_perc = Math.round( pro_perc );
+
+                    function createCircleChart(percent, color, size, stroke, time) {
+                        let svg = `<svg class="mkc_circle-chart" viewbox="0 0 36 36" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+                            <path class="mkc_circle-bg" stroke="#eeeeee" stroke-width="${
+                                stroke * 1
+                            }" fill="none" d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="mkc_circle" stroke="${color}" stroke-width="${stroke}" stroke-dasharray="${percent},100" stroke-linecap="round" fill="none"
+                                d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <text class="mkc_info" x="50%" y="50%" alignment-baseline="central" text-anchor="middle" font-size="8">${time}%</text>
+                        </svg>`;
+                        return svg;
+                    }
+
+                    let charts = document.getElementById("progress-bar"+curButton+"");;
+
+                    let chart = charts;
+                    let percent = progress_percentage;
+                    let time = rounded_pro_perc;
+                    let color = "color" in chart.dataset ? chart.dataset.color : "#4EC7EB";
+                    let size = "size" in chart.dataset ? chart.dataset.size : "65";
+                    let stroke = "stroke" in chart.dataset ? chart.dataset.stroke : "4";
+                    charts.innerHTML = createCircleChart(percent, color, size, stroke, time);
+                    
+
+                    curButton++;
+
+                }
+
+                if(SessionID >= 7)
+                    {
+                        var numLoops = SessionID - 6; 
+                        var counter = 1;
+
+                        for(var i = 0; i < numLoops; i++)
+                        {
+                            $("#"+counter).css("display", "none");
+
+                            console.log("removed button: " + counter);
+                            counter++;
+                        }
+                    }
+                
+            });
+        </script>
+    </body>
+</html>
+
+<!--
+    button code:
+
+    <a class='buttonSelector' id='" + SessionID + "' href='sessionTimer.html'>
+        <button class='SessionLog'> 
+            <div class='session_dt'> 
+                <div class='Session_date'>
+                " + logDate + "
+                </div> 
+                <div class='Session_time'>
+                    " + setTime + "
+                </div> 
+            </div>
+            <div class='Session_progress'>
+                <div class='progress-bar"+SessionID+"'>                
+                </div>
+            </div> 
+            <div> 
+                <i class='far fa-chevron-right chevron_sessionButton'></i>
+            </div> 
+        </button>
+    </a>
+-->
