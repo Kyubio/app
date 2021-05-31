@@ -33,9 +33,9 @@ In de `js` map staan alle JavaScript files die de website nodig heeft.
 
 <hr />
 
-# Deployment
+# Installation
 
-Wanneer een Pull request naar de `dev` branch gemerged wordt zal de PWA automatisch deployed worden en te bekijken zijn via <br />
+Installeer de Kyubio app via deze link <br />
 https://kyubio.i441891.hera.fhict.nl
 
-System status: [![Deploy dev](https://github.com/Kyubio/app/actions/workflows/deploy-dev.yml/badge.svg?branch=dev)](https://github.com/Kyubio/app/actions/workflows/deploy-dev.yml)
+System status: [![Deploy master](https://github.com/Kyubio/app/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/Kyubio/app/actions/workflows/deploy.yml)
