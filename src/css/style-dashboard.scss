@@ -3,6 +3,7 @@
 .content-container {
     position: relative;
     height: 90vh;
+    overflow: hidden;
 }
 
 #session-button {
@@ -34,17 +35,8 @@
     h1 {
         margin: 50px 0 5px 0;
         font-weight: bold;
+        font-family: "Montserrat", sans-serif;
     }
-}
-
-.SessionLog {
-    background-color: white;
-    outline: none;
-    border-radius: 15px;
-    color: black;
-    margin: 5px 0;
-    padding: 5px;
-    width: 100%;
 }
 
 .fa-info-circle {
@@ -52,11 +44,23 @@
     margin-left: 5px;
 }
 
+
+#back
+{
+    position: absolute;
+    top: 45px;
+    left: 10px;
+    font-size: 20px;
+    border: 0 solid;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 /* setTime.php css code*/
 
 .setTime-Title {
     margin: 50px 0 5px 0;
     font-weight: 600;
+    font-family: "Montserrat", sans-serif;
     text-align: center;
 }
 
@@ -80,9 +84,25 @@
 
 .time-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
-    padding: 100px 85px 0 80px;
+    padding: 100px 80px 0 80px;
+    text-align: center;
+}
+
+.centerTime
+{
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .centerTime
+    {
+        width: fit-content; 
+        margin-left: auto; 
+        margin-right: auto; 
+        text-align: center;
+    }
 }
 
 .flex-container {
@@ -105,6 +125,7 @@ input[type="time"] {
     font-size: 60px;
     font-family: montserrat;
     width: 100%;
+    margin: auto;
 }
 
 input[type="time"]::-webkit-datetime-edit-fields-wrapper {
@@ -156,7 +177,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 #timeSelect {
-    padding-left: 50px;
+    color: #43b1d6;
 }
 
 /* setTime.php css code*/
@@ -164,6 +185,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .settings-Title {
     margin: 50px 0 5px 0;
     font-weight: bold;
+    font-family: "Montserrat", sans-serif;
 }
 
 #settingsCnfrm {
@@ -190,6 +212,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     border: none;
     outline: none;
     padding: 30px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .flex-container {
@@ -197,6 +220,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    font-family: "Montserrat", sans-serif;
 }
 
 .switch {
@@ -298,4 +322,59 @@ input:checked + .slider:before {
         top: -1px;
         left: 50%;
     }
+}
+
+/*styling for earlier session buttons*/
+
+.SessionLog {
+    background-color: white;
+    outline: none;
+    border-radius: 15px;
+    color: black;
+    margin: 5px 0;
+    width: 100%;
+    height: 95px;
+    padding: 10px 25px 0 25px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.chevron_sessionButton
+{
+    position: relative;
+    float: right;
+    top: -52px;
+    font-size: 20px;
+    color: #43b1d6;
+}
+
+.Session_date
+{
+    color: #43b1d6;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.Session_time
+{
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.Session_progress
+{
+    position: relative;
+    float: left;
+    top: -75px;
+    left: -10px;
+    display: inline;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 20px;
+    color: #43b1d6; 
+}
+
+.mkc_info
+{
+    font-family: "Montserrat", sans-serif;
 }

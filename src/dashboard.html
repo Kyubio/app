@@ -22,6 +22,9 @@
         <link rel="stylesheet" type="text/css" href="css/compiled/fontawesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/compiled/style.min.css">
         <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
+        <link rel="stylesheet" type="text/css" href="css/compiled/style-modal.min.css">
+
+
     </head>
 
     <body>
@@ -52,12 +55,14 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script src="js/dashboard.js"></script>
-        <script src="js/timer.js"></script>
+        <script src="js/progress.js"></script>
+
         <script>
+            var nxtSession = localStorage.getItem("CurrentSessionID");
+            var prvSession = parseFloat(nxtSession);
+
             $(document).ready(function () {
-                var nxtSession = localStorage.getItem("CurrentSessionID");
-                var prvSession = parseFloat(nxtSession);
-                prvSession = prvSession;
+                
 
                 for (var i = prvSession; i != 0; i--) {
                     var SessionLog = localStorage.getItem("button" + i);
@@ -70,6 +75,87 @@
                     localStorage.setItem("pressedButton", buttonID);
                 });
             });
+
+            $('#earlierSessionLog').ready(function () {
+                var progress_percentage;
+                var curButton = 1;
+
+                while (curButton < nxtSession)
+                {
+                    var progress_percentage = localStorage.getItem("progress" + curButton);
+                    var pro_perc = parseFloat(progress_percentage);
+                    var rounded_pro_perc = Math.round( pro_perc );
+
+                    function createCircleChart(percent, color, size, stroke, time) {
+                        let svg = `<svg class="mkc_circle-chart" viewbox="0 0 36 36" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg">
+                            <path class="mkc_circle-bg" stroke="#eeeeee" stroke-width="${
+                                stroke * 1
+                            }" fill="none" d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path class="mkc_circle" stroke="${color}" stroke-width="${stroke}" stroke-dasharray="${percent},100" stroke-linecap="round" fill="none"
+                                d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <text class="mkc_info" x="50%" y="50%" alignment-baseline="central" text-anchor="middle" font-size="8">${time}%</text>
+                        </svg>`;
+                        return svg;
+                    }
+
+                    let charts = document.getElementById("progress-bar"+curButton+"");;
+
+                    let chart = charts;
+                    let percent = progress_percentage;
+                    let time = rounded_pro_perc;
+                    let color = "color" in chart.dataset ? chart.dataset.color : "#4EC7EB";
+                    let size = "size" in chart.dataset ? chart.dataset.size : "65";
+                    let stroke = "stroke" in chart.dataset ? chart.dataset.stroke : "4";
+                    charts.innerHTML = createCircleChart(percent, color, size, stroke, time);
+                    
+
+                    curButton++;
+
+                }
+
+                if(SessionID >= 7)
+                    {
+                        var numLoops = SessionID - 6; 
+                        var counter = 1;
+
+                        for(var i = 0; i < numLoops; i++)
+                        {
+                            $("#"+counter).css("display", "none");
+
+                            console.log("removed button: " + counter);
+                            counter++;
+                        }
+                    }
+                
+            });
         </script>
     </body>
 </html>
+
+<!--
+    button code:
+
+    <a class='buttonSelector' id='" + SessionID + "' href='sessionTimer.html'>
+        <button class='SessionLog'> 
+            <div class='session_dt'> 
+                <div class='Session_date'>
+                " + logDate + "
+                </div> 
+                <div class='Session_time'>
+                    " + setTime + "
+                </div> 
+            </div>
+            <div class='Session_progress'>
+                <div class='progress-bar"+SessionID+"'>                
+                </div>
+            </div> 
+            <div> 
+                <i class='far fa-chevron-right chevron_sessionButton'></i>
+            </div> 
+        </button>
+    </a>
+-->
