@@ -26,7 +26,7 @@ function onConnect() {
 
 function MQTTconnect() {
     console.log("connecting to" + host + "" + port);
-    mqtt = new Paho.MQTT.Client(host, port, "clientjs69");
+    mqtt = new Paho.MQTT.Client(host, port, "clientjs22");
     var options = {
         useSSL: true,
         timeout: 3,

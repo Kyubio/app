@@ -94,13 +94,6 @@ $("#settingsCnfrm").click(function () {
     var NubSession = parseFloat(SessionID);
     NubSession = NubSession + 1;
     localStorage.setItem("CurrentSessionID", NubSession);
-
-    //zet hier de code om de timer in mqtt te starten
-    mqtt.subscribe("trilMotor");
-    msgTrilMotor = new Paho.MQTT.Message("1");
-    msgTrilMotor.destinationName = "trilMotor";
-    mqtt.send(msgTrilMotor);
-    console.log(msgTrilMotor);
 });
 
 //frequency slider js
