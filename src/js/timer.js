@@ -71,6 +71,13 @@ function CounterStart() {
 
             console.log("done");
             toggleFrequencyShow();
+
+            //zet hier de code om de timer in mqtt te starten
+            mqtt.subscribe("trilMotor");
+            msgTrilMotor = new Paho.MQTT.Message("0");
+            msgTrilMotor.destinationName = "trilMotor";
+            mqtt.send(msgTrilMotor);
+            console.log(msgTrilMotor);
         }
 
         for (let i = 0; i < charts.length; i++) {
