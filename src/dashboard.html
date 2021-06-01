@@ -24,6 +24,9 @@
         <link rel="stylesheet" type="text/css" href="css/compiled/style-dashboard.min.css">
         <link rel="stylesheet" type="text/css" href="css/compiled/style-modal.min.css">
 
+        <script src="js/mqtt-connection.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+
 
     </head>
 
@@ -52,6 +55,9 @@
             <div id="earlierSessionLog"></div>
         </div>
 
+        <script>
+            MQTTconnect();
+        </script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script src="js/dashboard.js"></script>
@@ -73,6 +79,13 @@
                 $(".buttonSelector").click(function () {
                     buttonID = $(this).attr("id");
                     localStorage.setItem("pressedButton", buttonID);
+
+                    //zet hier de code om de timer in mqtt te starten
+                    mqtt.subscribe("trilMotor");
+                    msgTrilMotor = new Paho.MQTT.Message("1");
+                    msgTrilMotor.destinationName = "trilMotor";
+                    mqtt.send(msgTrilMotor);
+                    console.log(msgTrilMotor);
                 });
             });
 
