@@ -42,12 +42,14 @@ function CreateButton() {
         logDate +
         "</div> <div class='Session_time'>" +
         setTime +
-        "</div></div>  <div class='Session_progress'><div id='progress-bar"+SessionID+"'></div></div><div> <i class='far fa-chevron-right chevron_sessionButton'></i></div> </button></a>";
+        "</div></div>  <div class='Session_progress'><div id='progress-bar" +
+        SessionID +
+        "'></div></div><div> <i class='far fa-chevron-right chevron_sessionButton'></i></div> </button></a>";
     localStorage.setItem("button" + curSession, lastSessionLog);
 }
 
 //check welke tijd er wordt ingesteld en zet deze in de var setTime
-$("#timerCnfrm").click(function () { 
+$("#timerCnfrm").click(function () {
     Progress = "0";
     setTime = $("#timeSelect").val();
 
@@ -56,34 +58,28 @@ $("#timerCnfrm").click(function () {
     var minSec = splittedTime[1] * 60000;
     var timeMili = hoursSec + minSec;
 
-    var hours = Math.floor((timeMili % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var hours = Math.floor(
+        (timeMili % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
     var minutes = Math.floor((timeMili % (1000 * 60 * 60)) / (1000 * 60));
 
-    if(minutes >= 0 && minutes <= 9)
-        {
-            time = hours + ":0" +minutes;
-        }
-        else
-        {
-            time = hours + ":" + minutes;
-        }
+    if (minutes >= 0 && minutes <= 9) {
+        time = hours + ":0" + minutes;
+    } else {
+        time = hours + ":" + minutes;
+    }
 
     localStorage.setItem("time" + SessionID, time); //localStorage
     localStorage.setItem("remaining-time" + SessionID, time); //localStorage
     localStorage.setItem("progress" + SessionID, Progress); //localStorage
 
-    if(timeMili == 0)
-    {
-        localStorage.setItem("progress"+ SessionID, 100);
-        toggleFrequencyShow();   
-    }
-    else if(localStorage.getItem("time"+SessionID) == "NaN:NaN" )
-    {
-        toggleFrequencyShow();  
-        console.log("Nu probeer je het echt kapot te maken")
-    }
-    else
-    {
+    if (timeMili == 0) {
+        localStorage.setItem("progress" + SessionID, 100);
+        toggleFrequencyShow();
+    } else if (localStorage.getItem("time" + SessionID) == "NaN:NaN") {
+        toggleFrequencyShow();
+        console.log("Nu probeer je het echt kapot te maken");
+    } else {
         window.location.href = "sessionSettings.html";
     }
 });

@@ -5,20 +5,18 @@ var timeRunning;
 
 var timeRun;
 
-var progression = localStorage.getItem("progress"+ thisSession);
+var progression = localStorage.getItem("progress" + thisSession);
 
 var settime = localStorage.getItem("time" + thisSession);
 var settime_split = settime.split(":");
 var settime_sec = settime_split[0] * 3600000;
 var settime_mili = settime_split[1] * 60000;
 
-if(settime_mili == 0)
-{}
+if (settime_mili == 0) {
+}
 
-if(progression >= 100)
-{}
-else
-{
+if (progression >= 100) {
+} else {
     CounterStart();
 }
 
@@ -46,18 +44,17 @@ function CounterStart() {
 
         timeleft = timeleft - timefreq;
 
-        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var hours = Math.floor(
+            (timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
         var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
 
-        if(minutes >= 0 && minutes <= 9)
-        {
-            timeRunning = hours + ":0" +minutes;
-        }
-        else
-        {
+        if (minutes >= 0 && minutes <= 9) {
+            timeRunning = hours + ":0" + minutes;
+        } else {
             timeRunning = hours + ":" + minutes;
         }
-        
+
         let charts = document.getElementsByClassName("mkCharts");
         localStorage.setItem("remaining-time" + thisSession, timeRunning);
 
@@ -97,12 +94,12 @@ function CounterStart() {
             );
         }
     }, 1000);
-};
+}
 
 $("#start-counter").click(function () {
     CounterStart();
-    $('#start-counter').css("display", "none");
-    $('#pause-counter').css("display", "block");    
+    $("#start-counter").css("display", "none");
+    $("#pause-counter").css("display", "block");
 
     //zet hier de code om de timer in mqtt te starten
     mqtt.subscribe("trilMotor");
@@ -114,13 +111,11 @@ $("#start-counter").click(function () {
 
 $("#pause-counter").click(function () {
     clearInterval(timeRun);
-    
-    if(progression >= 100)
-    {}
-    else
-    {
-        $('#pause-counter').css("display", "none");
-        $('#start-counter').css("display", "block");
+
+    if (progression >= 100) {
+    } else {
+        $("#pause-counter").css("display", "none");
+        $("#start-counter").css("display", "block");
     }
     //zet hier de code om de timer in mqtt te starten
     mqtt.subscribe("trilMotor");
@@ -169,9 +164,9 @@ for (let i = 0; i < charts.length; i++) {
     charts[i].innerHTML = createCircleChart(percent, color, size, stroke, time);
 }
 
-$('.chevron-thing').click(function(){
-    $('.Start-Stop').css("display", "block");
-    $('.chevron-thing').css("display", "none");
+$(".chevron-thing").click(function () {
+    $(".Start-Stop").css("display", "block");
+    $(".chevron-thing").css("display", "none");
 });
 
 // Get the modal

@@ -9,11 +9,15 @@
 *_LOCAL_*.txt
 *_REMOTE_*.txt
 
+### JetBrains ###
+.idea/
+
 ### macOS ###
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon
+Icon.png
 ._*
 .DocumentRevisions-V100
 .fseventsd
@@ -33,9 +37,6 @@ Temporary Items
 
 ### Sass ###
 .sass-cache/
-
-### Tower ###
-Icon.png
 
 ### VisualStudioCode ###
 .vscode/*

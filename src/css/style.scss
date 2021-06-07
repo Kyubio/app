@@ -10,10 +10,12 @@ body {
 header {
     text-align: center;
     margin-top: 40px;
+
     h1 {
         font-family: "Aquire", sans-serif;
         font-size: 29px;
     }
+
     h2 {
         font-family: "Montserrat", sans-serif;
         font-size: 19px;
@@ -35,6 +37,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+
     h1 {
         font-family: "Aquire", sans-serif;
         font-size: 61px;
@@ -48,6 +51,7 @@ header {
     border-radius: $buttonRadius;
     box-shadow: $buttonShadow;
     color: #fff;
+
     p {
         font-family: "Montserrat", sans-serif;
         font-size: 17px;

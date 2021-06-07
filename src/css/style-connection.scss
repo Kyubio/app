@@ -3,11 +3,13 @@
 .connection-text {
     margin-top: 50px;
     margin-bottom: 30px;
+
     h1 {
         font-family: "Montserrat", sans-serif;
         font-size: 19px;
         font-weight: 700;
     }
+
     p {
         font-family: "Montserrat", sans-serif;
         font-size: 19px;
@@ -23,6 +25,7 @@ a {
     font-size: 17px;
     font-weight: 400;
     padding: 15px 0;
+
     &:hover {
         cursor: pointer;
     }
@@ -34,20 +37,24 @@ a {
     border-radius: $buttonRadius;
     box-shadow: $buttonShadow;
     margin-top: 30px;
+
     h1 {
         font-family: "Montserrat", sans-serif;
         font-size: 17px;
         font-weight: 400;
         padding: 22px 22px 12px 22px;
     }
+
     .cubes-nearby {
         color: $bgColor;
         padding: 0 22px 10px 22px;
+
         p {
             font-family: "Montserrat", sans-serif;
             font-size: 17px;
             font-weight: 400;
             padding: 15px 0;
+
             &:hover {
                 cursor: pointer;
             }
@@ -73,6 +80,7 @@ a {
     border: none;
     padding: 16px;
     width: 100%;
+
     &:focus {
         border: 1px solid $bgColor;
     }
@@ -148,6 +156,7 @@ a {
 .modal-header {
     padding: 40px 20px;
     color: black;
+
     h1 {
         font-family: "Montserrat", sans-serif;
         font-size: 16px;
