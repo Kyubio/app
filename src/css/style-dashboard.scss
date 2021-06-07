@@ -90,8 +90,24 @@
     text-align: center;
 }
 
+/* center desktop 
 .centerTime
 {
+    width: 80%; 
+    padding-left: 10px;
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+}
+*/
+
+/* center mobile */
+
+.centerTime
+{
+    width: fit-content; 
+    margin-left: auto; 
+    margin-right: auto; 
     text-align: center;
 }
 
@@ -102,8 +118,9 @@
         margin-left: auto; 
         margin-right: auto; 
         text-align: center;
+        padding-left: 20px;
     }
-}
+  } 
 
 .flex-container {
     display: flex;
@@ -178,6 +195,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 #timeSelect {
     color: #43b1d6;
+    outline: none;
 }
 
 /* setTime.php css code*/
