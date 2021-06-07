@@ -91,25 +91,24 @@
     text-align: center;
 }
 
-/* center desktop
-.centerTime
-{
+// center desktop
+
+.centerTime {
     width: 80%;
     padding-left: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
-*/
 
-/* center mobile */
+// center mobile
 
-.centerTime {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
+// .centerTime {
+//     width: fit-content;
+//     margin-left: auto;
+//     margin-right: auto;
+//     text-align: center;
+// }
 
 @media only screen and (max-width: 600px) {
     .centerTime {
